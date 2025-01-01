@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Upload Crop Leaf Image{% endblock title %}
+{% block body %}
+<div class="default-bg">
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-md-6">
+                <h1 class="my-3 text-center text-dark">Upload a Crop Leaf Image for Diagnosis</h1>
+                {% if message %}
+                <div class="alert alert-info">{{ message }}</div>
+                {% endif %}
+                <div class="form-bg flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+                    <form action="/upload" method="POST" enctype="multipart/form-data"
+                        class="bg-white/70 backdrop-blur-md shadow-lg rounded-lg p-6 w-full max-w-md dark:bg-gray-800/70">
+                        <h2 class="text-center text-2xl font-bold text-gray-700 dark:text-white mb-6 ">Upload Your Image</h2>
+                        <div class="mb-6 text-center">
+                            <label for="dropzone-file"
+                                class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50/70 dark:hover:bg-gray-800/70 dark:bg-gray-700/70 hover:bg-gray-100/70 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 transition-all duration-300">
+                                <svg class="w-12 h-12 mb-4 text-gray-500 dark:text-gray-400 animate-bounce"
+                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                </svg>
+                                <p class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300"><span
+                                        class="font-semibold">Click to upload</span> or drag and drop</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Supported formats: PNG, JPG, JPEG</p>
+                                <input id="dropzone-file" type="file" name="leaf_image" class="hidden" required />
+                            </label>
+                        </div>
+                        <br>
+                        <button type="submit"
+                            class="btn btn-primary w-full py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-all duration-300 dark:bg-blue-500 dark:hover:bg-blue-600">
+                            Upload Image
+                        </button>
+                    </form>
+                </div>
+                {% if message %}
+                <p class="text-white text-center">{{ message }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

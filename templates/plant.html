@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block body %}
+<div class="container mt-5 animate__animated animate__fadeIn">
+    <h2 class="text-center">Upload Plant Image</h2>
+    <form method="POST" enctype="multipart/form-data" class="animate__animated animate__zoomIn">
+        <div class="mb-3">
+            <input type="file" class="form-control" name="plant_image" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Upload</button>
+    </form>
+</div>
+{% endblock body %}
