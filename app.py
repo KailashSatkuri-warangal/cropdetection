@@ -1,3 +1,21 @@
+#pip install flask tensorflow werkzeug numpy pillow
+import subprocess
+import sys
+def install_requirements():
+    # List of required packages
+    required_packages = [
+        "Flask",
+        "werkzeug",
+        "tensorflow",
+        "numpy",
+        "pillow"
+    ]
+
+    # Install packages using pip
+    subprocess.check_call([sys.executable, "-m", "pip", "install"] + required_packages)
+
+# Run the install function
+install_requirements()
 from flask import Flask, render_template, request, redirect, url_for
 import os
 from werkzeug.utils import secure_filename
